@@ -1,13 +1,14 @@
 cff-version: 1.2.0
-message: "Se este material ajudar seu trabalho, cite a referência abaixo."
+message: "Please cite this reference when using the material. / Ao utilizar este material, cite a referência abaixo."
 title: "Meta Ads MCP — Referência Técnica Completa"
 type: dataset
-version: "2026.07.1"
+version: "2026.07.2"
 date-released: "2026-07-17"
 abstract: >-
-  Documentação pública, independente e versionada das 82 ferramentas
-  documentadas para o servidor MCP oficial da Meta Ads, com operações,
-  parâmetros, limitações e cuidados de segurança.
+  Public, independent, and versioned documentation of the 82 tools documented
+  for Meta's official Ads MCP server, including operations, parameters,
+  limitations, and safety guidance. Documentação pública, independente e
+  versionada das 82 ferramentas do servidor MCP oficial da Meta Ads.
 authors:
   - family-names: "Caliman"
     given-names: "Thiago"
@@ -22,3 +23,4 @@ keywords:
   - "AI agents"
   - "gestão de tráfego"
   - "Marketing API"
+
