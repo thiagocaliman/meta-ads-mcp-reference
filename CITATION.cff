@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Se este material ajudar seu trabalho, cite a referência abaixo."
+title: "Meta Ads MCP — Referência Técnica Completa"
+type: dataset
+version: "2026.07.1"
+date-released: "2026-07-17"
+abstract: >-
+  Documentação pública, independente e versionada das 82 ferramentas
+  documentadas para o servidor MCP oficial da Meta Ads, com operações,
+  parâmetros, limitações e cuidados de segurança.
+authors:
+  - family-names: "Caliman"
+    given-names: "Thiago"
+    affiliation: "AI PRO Revolution"
+url: "https://thiagocaliman.com.br/mcp-meta/"
+repository-code: "https://github.com/thiagocaliman/meta-ads-mcp-reference"
+license: "CC-BY-4.0"
+keywords:
+  - "Meta Ads"
+  - "Model Context Protocol"
+  - "MCP"
+  - "AI agents"
+  - "gestão de tráfego"
+  - "Marketing API"
