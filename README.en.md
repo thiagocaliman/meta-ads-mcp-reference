@@ -557,7 +557,191 @@ Creates audiences of 5 subtypes: `CUSTOM` (customer list/DFCA), `WEBSITE` (websi
 
 - `ad_account_id`, `name`, `subtype` (required)
 - `customer_file_source` (required for CUSTOM) — `USER_PROVIDED_ONLY`, `PARTNER_PROVIDED_ONLY`, `BOTH_USER_AND_PARTNER_PROVIDED`
-- `rule` (requir…1720 tokens truncated…eting` (JSON) — never invent IDs of interest; broad: `{"geo_locations":{"countries":["BR"]}}`
+- `rule` (required for WEBSITE/ENGAGEMENT/MOBILE_APP) — JSON string with inclusions/exclusions, event_sources, retention_seconds, templates
+- `origin_audience_id` + `lookalike_ratio` (required for LOOKALIKE) — ratio from 0.01 (1%) to 0.20 (20%); origin cannot be another lookalike
+- `retention_days` (CUSTOM; 1–180, default 180)
+- `is_value_based` (CUSTOM), `prefill` (default true), `audience_labels`, `description`
+
+### `ads_update_custom_audience`
+
+**🟠 Write (update)**
+
+Updates existing audience metadata: name, description, labels and, for website audiences (WCA), the JSON rule.
+
+**Parameters:**
+
+- `custom_audience_id` (required) + at least 1 field
+- `name`, `description`, `audience_labels`, `rule` (WCA only)
+
+**Important:**
+
+- ⚠️ DFCA retention cannot be changed.
+
+### `ads_update_custom_audience_users`
+
+**🟠 Write (update)**
+
+Adds or removes users from a customer list (DFCA) by sending PII with SHA-256 hashing (accepts raw or already hashed data; normalizes and hashes on the server).
+
+**Parameters:**
+
+- `audience_id` (required)
+- `schema` (required, ordered list) — `EMAIL`, `PHONE`, `FN`, `LN`, `ZIP`, `CT`, `ST`, `COUNTRY`, `DOB`, `GEN`, `MADID`, `EXTERN_ID`, `LOOKALIKE_VALUE`
+- `data` (required) — user rows in schema order
+- `operation` (optional) — `ADD` (default) or `REMOVE`
+- `customer_consent` (optional), `debug_identifier` (optional)
+
+**Important:**
+
+- ⚠️ `REMOVE` may be rejected if it reduces the audience below the minimum delivery of active campaigns.
+
+### `ads_delete_custom_audience`
+
+**🔴 Delete (destructive)**
+
+Deletes an audience PERMANENTLY. Active ad sets that use it are automatically paused. Derived lookalikes need to be deleted first.
+
+**Parameters:**
+
+- `custom_audience_id` (required)
+
+---
+
+## 5. Pixel — events and parameters
+
+Management of Pixel conversion event rules and their parameter extractors. All tools are batch (`items[]`) with option `partial` (continue after error per item).
+
+### `ads_pixel_event_read`
+
+**🟢 Read**
+
+Reads Pixel conversion event rules (list by pixel or search by rule ID). Does not return event parameters.
+
+**Parameters:**
+
+- `items` (required) — each item: `pixel_id` (required), `event_rule_id` (optional), `event_type` (optional: Purchase, AddToCart, Lead, etc.)
+- `partial` (optional, bool)
+
+**Important:**
+
+- ⚠️ Requires scope `ads_read`, `ads_management` or `business_management`.
+
+### `ads_pixel_event_create`
+
+**🟠 Write (create)**
+
+Creates standard Pixel event rules (17 standard Meta events). `rule_type` `TOKENIZED_BUTTON_TEXT` (button click) or `URL` (page load). Events are born `INACTIVE`.
+
+**Parameters:**
+
+- `items` — each item: `pixel_id`, `event_type`, `rule_type`, `match_value`, `domain_uri` (required); `operator` (default `EQUALS` for button, `CONTAINS` for URL); embedded `parameters[]`: `{parameter_type, extractor_type (CSS or CONSTANT_VALUE), extractor_config_json}`
+- `partial` (optional)
+
+### `ads_pixel_event_update`
+
+**🟠 Write (update)**
+
+Only changes the status of the event rule: `ACTIVE` or `INACTIVE` (enable/pause).
+
+**Parameters:**
+
+- `items` — each item: `event_rule_id`, `status`
+- `partial` (optional)
+
+### `ads_pixel_event_delete`
+
+**🔴 Delete (destructive)**
+
+Deletes event rules. Rules created in the interface (USER_CONFIG) are permanently hard-deleted; rules from other sources are soft-deleted (archived). Linked parameters are NOT deleted through cascading.
+
+**Parameters:**
+
+- `items` — each item: `event_rule_id`
+- `partial` (optional)
+
+### `ads_pixel_parameter_read`
+
+**🟢 Read**
+
+Reads Pixel parameter extractors (by pixel or by parameter ID), with filters by domain and event type.
+
+**Parameters:**
+
+- `items` — each item: `pixel_id` (required), `parameter_id`, `domain_uri`, `event_type` (optional)
+- `partial` (optional)
+
+### `ads_pixel_parameter_create`
+
+**🟠 Write (create)**
+
+Creates parameter extractors: `CSS` (reads the innerText of the element — does not read URL, attributes or JS state) or `CONSTANT_VALUE` (fixed value, e.g.: `currency = BRL`).
+
+**Parameters:**
+
+- `items` — each item: `pixel_id`, `domain_uri`, `event_type`, `extractor_type` (required); `extractor_config_json`, `event_rule_id` (optional)
+- `partial` (optional)
+
+### `ads_pixel_parameter_update`
+
+**🟠 Write (update)**
+
+Change existing extractor; omitted fields remain unchanged.
+
+**Parameters:**
+
+- `items` — each item: `parameter_id` (required); `domain_uri`, `event_type`, `extractor_type`, `extractor_config_json`, `event_rule_id` (optional)
+- `partial` (optional)
+
+### `ads_pixel_parameter_delete`
+
+**🔴 Delete (destructive)**
+
+Soft-deletes an extractor (archives it). Does not affect the linked event rule.
+
+**Parameters:**
+
+- `items` — each item: `parameter_id`
+- `partial` (optional)
+
+---
+
+## 6. Creation and management of campaigns
+
+The complete creation flow is campaign → ad set → creative → ad → activation. Entities are always created in a PAUSED state — spending starts only after `ads_activate_entity`.
+
+### `ads_create_campaign`
+
+**🟠 Write (create)**
+
+Create campaign in PAUSED. Meta recommends CBO (campaign-level budget): setting any `campaign_daily/lifetime_budget` automatically activates CBO.
+
+**Parameters:**
+
+- `ad_account_id`, `campaign_name`, `objective`, `buying_type` (required)
+- `objective` — ODAX only: `OUTCOME_AWARENESS`, `OUTCOME_TRAFFIC`, `OUTCOME_ENGAGEMENT`, `OUTCOME_LEADS`, `OUTCOME_SALES`, `OUTCOME_APP_PROMOTION` (legacy objectives are rejected)
+- `buying_type` — `AUCTION` (default) or `RESERVED`
+- `campaign_daily_budget` OR `campaign_lifetime_budget` (cents; exclusive; CBO only)
+- `campaign_bid_strategy` — `LOWEST_COST_WITHOUT_CAP` (default), `LOWEST_COST_WITH_BID_CAP`, `COST_CAP`, `LOWEST_COST_WITH_MIN_ROAS`
+- `campaign_spend_cap` (cents), `campaign_start_time`/`stop_time` (ISO 8601)
+- `special_ad_categories` (default `[]`) + `special_ad_category_country`
+- `promoted_object` (JSON; required for some objectives), `adlabels`, `budget_schedule_specs`, `source_campaign_id`, `is_skadnetwork_attribution`, and others
+
+**Important:**
+
+- ⚠️ The response includes `valid_optimization_goals` and `recommended_optimization_goal` for the next ad set.
+
+### `ads_create_ad_set`
+
+**🟠 Write (create)**
+
+Creates PAUSED ad set under existing campaign, with dozens of targeting, budget, bidding and scheduling parameters.
+
+**Parameters:**
+
+- `ad_account_id`, `campaign_id`, `ad_set_name`, `billing_event`, `optimization_goal`, `targeting` (required)
+- `billing_event` — `IMPRESSIONS`, `LINK_CLICKS`, `POST_ENGAGEMENT`, `VIDEO_VIEWS`
+- `optimization_goal` — 26 values (`REACH`, `IMPRESSIONS`, `LINK_CLICKS`, `LANDING_PAGE_VIEWS`, `OFFSITE_CONVERSIONS`, `VALUE`, `LEAD_GENERATION`, `QUALITY_LEAD`, `CONVERSATIONS`, `APP_INSTALLS`, `THRUPLAY`, `VIDEO_VIEWS`, `PAGE_LIKES`, `POST_ENGAGEMENT` etc.), with compatibility validated by campaign objective
+- `targeting` (JSON) — never invent IDs of interest; broad: `{"geo_locations":{"countries":["BR"]}}`
 - `daily_budget` / `lifetime_budget` (cents) — ONLY in ABO mode (campaign without own budget); `lifetime` requires `end_time`
 - `bid_strategy` / `bid_amount` / `bid_constraints` — ABO only; `COST_CAP` and `BID_CAP` require `bid_amount`; `MIN_ROAS` requires `bid_constraints {roas_average_floor}`
 - `promoted_object` (JSON) — REQUIRED for `OFFSITE_CONVERSIONS`, `VALUE`, `LEAD_GENERATION`, `QUALITY_LEAD`, `APP_INSTALLS`, `IN_APP_VALUE`; e.g.: `{"pixel_id":"123","custom_event_type":"PURCHASE"}`
@@ -1105,4 +1289,3 @@ The content is independent and educational. Meta, Facebook, Instagram and their 
 ---
 
 *Independent documentation, not affiliated with Meta. Product names belong to their respective owners.*
-
