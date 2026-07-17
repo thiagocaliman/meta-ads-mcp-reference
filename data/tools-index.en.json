@@ -1,0 +1,441 @@
+{
+  "schema_version": "1.0",
+  "title": "Meta Ads MCP — Complete Technical Reference",
+  "description": "Machine-readable index of the 82 documented tools for Meta's official Ads MCP server.",
+  "language": "en",
+  "version": "2026.07.2",
+  "last_reviewed": "2026-07-17",
+  "canonical_url": "https://thiagocaliman.com.br/mcp-meta/",
+  "repository_url": "https://github.com/thiagocaliman/meta-ads-mcp-reference",
+  "mcp_endpoint": "https://mcp.facebook.com/ads",
+  "marketing_api_version": "v25.0",
+  "author": {
+    "name": "Thiago Caliman",
+    "url": "https://thiagocaliman.com.br/"
+  },
+  "publisher": {
+    "name": "AI PRO Revolution",
+    "type": "Organization"
+  },
+  "license": "CC-BY-4.0",
+  "affiliation_notice": "Independent documentation with no affiliation, sponsorship, or endorsement by Meta.",
+  "totals": {
+    "tools": 82,
+    "read": 52,
+    "write": 26,
+    "delete": 4
+  },
+  "tools": [
+    {
+      "name": "ads_get_ad_accounts",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ad_account_pages",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_user_pages",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_pages_for_business",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ad_entities",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ad_preview",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ad_images",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ad_videos",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_creatives",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_creative_ads",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ig_accounts",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ig_media",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_errors",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_field_context",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_help_article",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_opportunity_score",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_account_get_activity_logs",
+      "category": "1. Account discovery and structure reading",
+      "operation": "read"
+    },
+    {
+      "name": "ads_insights_advertiser_context",
+      "category": "2. Insights and performance diagnostics",
+      "operation": "read"
+    },
+    {
+      "name": "ads_insights_anomaly_signal",
+      "category": "2. Insights and performance diagnostics",
+      "operation": "read"
+    },
+    {
+      "name": "ads_insights_auction_ranking_benchmarks",
+      "category": "2. Insights and performance diagnostics",
+      "operation": "read"
+    },
+    {
+      "name": "ads_insights_industry_benchmark",
+      "category": "2. Insights and performance diagnostics",
+      "operation": "read"
+    },
+    {
+      "name": "ads_insights_performance_trend",
+      "category": "2. Insights and performance diagnostics",
+      "operation": "read"
+    },
+    {
+      "name": "ads_library_search",
+      "category": "2. Insights and performance diagnostics",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_datasets",
+      "category": "3. Datasets (Pixel) and conversions — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_dataset_details",
+      "category": "3. Datasets (Pixel) and conversions — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_dataset_quality",
+      "category": "3. Datasets (Pixel) and conversions — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_dataset_stats",
+      "category": "3. Datasets (Pixel) and conversions — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_customconversions",
+      "category": "3. Datasets (Pixel) and conversions — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_ad_account_custom_audiences",
+      "category": "4. Custom Audiences",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_custom_audience",
+      "category": "4. Custom Audiences",
+      "operation": "read"
+    },
+    {
+      "name": "ads_get_custom_audience_adsets",
+      "category": "4. Custom Audiences",
+      "operation": "read"
+    },
+    {
+      "name": "ads_create_custom_audience",
+      "category": "4. Custom Audiences",
+      "operation": "write"
+    },
+    {
+      "name": "ads_update_custom_audience",
+      "category": "4. Custom Audiences",
+      "operation": "write"
+    },
+    {
+      "name": "ads_update_custom_audience_users",
+      "category": "4. Custom Audiences",
+      "operation": "write"
+    },
+    {
+      "name": "ads_delete_custom_audience",
+      "category": "4. Custom Audiences",
+      "operation": "delete"
+    },
+    {
+      "name": "ads_pixel_event_read",
+      "category": "5. Pixel — events and parameters",
+      "operation": "read"
+    },
+    {
+      "name": "ads_pixel_event_create",
+      "category": "5. Pixel — events and parameters",
+      "operation": "write"
+    },
+    {
+      "name": "ads_pixel_event_update",
+      "category": "5. Pixel — events and parameters",
+      "operation": "write"
+    },
+    {
+      "name": "ads_pixel_event_delete",
+      "category": "5. Pixel — events and parameters",
+      "operation": "delete"
+    },
+    {
+      "name": "ads_pixel_parameter_read",
+      "category": "5. Pixel — events and parameters",
+      "operation": "read"
+    },
+    {
+      "name": "ads_pixel_parameter_create",
+      "category": "5. Pixel — events and parameters",
+      "operation": "write"
+    },
+    {
+      "name": "ads_pixel_parameter_update",
+      "category": "5. Pixel — events and parameters",
+      "operation": "write"
+    },
+    {
+      "name": "ads_pixel_parameter_delete",
+      "category": "5. Pixel — events and parameters",
+      "operation": "delete"
+    },
+    {
+      "name": "ads_create_campaign",
+      "category": "6. Campaign creation and management",
+      "operation": "write"
+    },
+    {
+      "name": "ads_create_ad_set",
+      "category": "6. Campaign creation and management",
+      "operation": "write"
+    },
+    {
+      "name": "ads_create_creative",
+      "category": "6. Campaign creation and management",
+      "operation": "write"
+    },
+    {
+      "name": "ads_create_ad",
+      "category": "6. Campaign creation and management",
+      "operation": "write"
+    },
+    {
+      "name": "ads_update_entity",
+      "category": "6. Campaign creation and management",
+      "operation": "write"
+    },
+    {
+      "name": "ads_activate_entity",
+      "category": "6. Campaign creation and management",
+      "operation": "write"
+    },
+    {
+      "name": "ads_boost_ig_post",
+      "category": "6. Campaign creation and management",
+      "operation": "write"
+    },
+    {
+      "name": "ads_experiment_check_eligibility",
+      "category": "7. Experiments — A/B tests and lift studies",
+      "operation": "read"
+    },
+    {
+      "name": "ads_experiment_list_tests",
+      "category": "7. Experiments — A/B tests and lift studies",
+      "operation": "read"
+    },
+    {
+      "name": "ads_experiment_abtest_get_test",
+      "category": "7. Experiments — A/B tests and lift studies",
+      "operation": "read"
+    },
+    {
+      "name": "ads_experiment_lift_get_test",
+      "category": "7. Experiments — A/B tests and lift studies",
+      "operation": "read"
+    },
+    {
+      "name": "ads_experiment_abtest_create_test",
+      "category": "7. Experiments — A/B tests and lift studies",
+      "operation": "write"
+    },
+    {
+      "name": "ads_experiment_abtest_update_test",
+      "category": "7. Experiments — A/B tests and lift studies",
+      "operation": "write"
+    },
+    {
+      "name": "ads_experiment_lift_create_test",
+      "category": "7. Experiments — A/B tests and lift studies",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_get_catalogs",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_details",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_data_sources",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_diagnostics",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_dynamic_ads_health",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_event_source_catalogs",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_feed_rules",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_product_details",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_product_feed_details",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_product_feed_upload_sessions",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_product_sets",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_product_set_details",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_product_set_products",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_get_product_product_sets",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_search_product",
+      "category": "8. Product catalog — read",
+      "operation": "read"
+    },
+    {
+      "name": "ads_catalog_create",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_create_product_feed",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_create_feed_rule",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_create_product_feed_upload_session",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_create_product_set",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_update_catalog",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_update_product",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_update_product_feed",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_update_product_set",
+      "category": "9. Product catalog — write",
+      "operation": "write"
+    },
+    {
+      "name": "ads_catalog_delete_product",
+      "category": "9. Product catalog — write",
+      "operation": "delete"
+    }
+  ]
+}
+
