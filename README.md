@@ -4,6 +4,16 @@
 
 **Última atualização:** julho/2026 · **API base:** Marketing API v25.0
 
+> **Guia visual e material canônico:** [MCP Meta Ads — guia completo para gestores de tráfego](https://thiagocaliman.com.br/mcp-meta/)  
+> Este repositório funciona como a documentação técnica pública e versionada do material.
+
+- **Autor e mantenedor:** [Thiago Caliman](https://thiagocaliman.com.br/)
+- **Organização/publicadora:** AI PRO Revolution
+- **Índice legível por agentes:** [`data/tools-index.json`](data/tools-index.json)
+- **Como citar:** [`CITATION.cff`](CITATION.cff)
+- **Histórico de versões:** [`CHANGELOG.md`](CHANGELOG.md)
+- **Licença:** [CC BY 4.0](LICENSE)
+
 ---
 
 ## Visão geral
@@ -1256,6 +1266,16 @@ Exclui produto PERMANENTEMENTE do catálogo (sem desfazer via API). O produto so
 - Validar campos com `ads_get_field_context` antes de montar consultas grandes.
 - Verificar `is_queryable` / `is_ads_mcp_enabled` antes de operar em uma conta.
 - Em erro de rate limit: aguardar e reduzir a frequência — insistir estende o bloqueio.
+
+## Como citar e reutilizar
+
+Referência sugerida:
+
+> CALIMAN, Thiago. **Meta Ads MCP — Referência Técnica Completa**. AI PRO Revolution, versão 2026.07.1, 2026. Disponível em: [https://thiagocaliman.com.br/mcp-meta/](https://thiagocaliman.com.br/mcp-meta/).
+
+Para softwares e gerenciadores bibliográficos compatíveis com GitHub, use o arquivo [`CITATION.cff`](CITATION.cff). A documentação é distribuída sob a licença [Creative Commons Attribution 4.0 International](LICENSE): reutilizações devem atribuir Thiago Caliman, a AI PRO Revolution e indicar o endereço do material original.
+
+O conteúdo é independente e educacional. Meta, Facebook, Instagram e seus produtos são marcas de seus respectivos titulares. Este projeto não é patrocinado, endossado nem mantido pela Meta.
 
 ## Fontes
 
