@@ -5,7 +5,7 @@
   "language": "en",
   "version": "2026.07.2",
   "last_reviewed": "2026-07-17",
-  "canonical_url": "https://thiagocaliman.com.br/mcp-meta/",
+  "canonical_url": "https://thiagocaliman.com.br/en/mcp-meta/",
   "repository_url": "https://github.com/thiagocaliman/meta-ads-mcp-reference",
   "mcp_endpoint": "https://mcp.facebook.com/ads",
   "marketing_api_version": "v25.0",
@@ -438,4 +438,3 @@
     }
   ]
 }
-
