@@ -6,7 +6,7 @@
 
 **Last updated:** July/2026 · **API base:** Marketing API v25.0
 
-> **Visual guide and canonical material:** [MCP Meta Ads — complete guide for traffic managers](https://thiagocaliman.com.br/mcp-meta/)  
+> **Visual guide and canonical material:** [MCP Meta Ads — complete guide for traffic managers](https://thiagocaliman.com.br/en/mcp-meta/)  
 > This repository functions as the public and versioned technical documentation of the material.
 
 - **Author and maintainer:** [Thiago Caliman](https://thiagocaliman.com.br/)
@@ -1273,7 +1273,7 @@ Permanently deletes a product from the catalog; this CANNOT be undone through th
 
 Suggested reference:
 
-> CALIMAN, Thiago. **Meta Ads MCP — Complete Technical Reference**. AI PRO Revolution, version 2026.07.2, 2026. Available at: [https://thiagocaliman.com.br/mcp-meta/](https://thiagocaliman.com.br/mcp-meta/).
+> CALIMAN, Thiago. **Meta Ads MCP — Complete Technical Reference**. AI PRO Revolution, version 2026.07.2, 2026. Available at: [https://thiagocaliman.com.br/en/mcp-meta/](https://thiagocaliman.com.br/en/mcp-meta/).
 
 For GitHub-compatible citation tools and reference managers, use [`CITATION.cff`](CITATION.cff). This documentation is distributed under the [Creative Commons Attribution 4.0 International](LICENSE) license. Reuse must credit Thiago Caliman and AI PRO Revolution and link to the original material.
 
