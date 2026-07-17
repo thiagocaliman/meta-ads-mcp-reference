@@ -4,6 +4,19 @@ Todas as alterações relevantes desta referência pública serão registradas a
 
 O formato segue os princípios do [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/), com versões identificadas pelo ano e mês da revisão.
 
+## [2026.07.2] — 2026-07-17
+
+### Adicionado
+
+- Versão inglesa completa em `README.en.md`, com as 82 ferramentas e a mesma estrutura técnica da edição em português.
+- Seletor de idioma no topo dos dois documentos.
+- Índice legível por máquina em inglês: `data/tools-index.en.json`.
+
+### Validado
+
+- Correspondência integral dos 82 nomes de ferramentas entre português e inglês.
+- Preservação de URLs, parâmetros, enums, blocos técnicos e classificação de operações.
+
 ## [2026.07.1] — 2026-07-17
 
 ### Adicionado
@@ -28,3 +41,4 @@ O formato segue os princípios do [Keep a Changelog](https://keepachangelog.com/
 - Organização em 9 categorias.
 - Classificação de 52 operações de leitura, 26 de escrita e 4 de exclusão.
 - Parâmetros, valores aceitos, limitações, segurança e fontes.
+
