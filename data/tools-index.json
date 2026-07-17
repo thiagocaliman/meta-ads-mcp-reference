@@ -3,7 +3,7 @@
   "title": "Meta Ads MCP — Referência Técnica Completa",
   "description": "Índice legível por máquina das 82 ferramentas documentadas para o servidor MCP oficial da Meta Ads.",
   "language": "pt-BR",
-  "version": "2026.07.1",
+  "version": "2026.07.2",
   "last_reviewed": "2026-07-17",
   "canonical_url": "https://thiagocaliman.com.br/mcp-meta/",
   "repository_url": "https://github.com/thiagocaliman/meta-ads-mcp-reference",
@@ -438,3 +438,4 @@
     }
   ]
 }
+
